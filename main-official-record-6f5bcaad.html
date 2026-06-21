@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 创作与体验</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #fafaf7;
+            color: #2e2e2e;
+            line-height: 1.7;
+            letter-spacing: 0.01em;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #13161c 0%, #1e232d 100%);
+            color: #e8e6e0;
+            padding: 3.8rem 2rem 2.8rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to bottom, transparent, #fafaf7);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 0.4rem;
+            color: #f0ede6;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #b2b0a8;
+            max-width: 520px;
+            margin: 0.6rem auto 1.2rem;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            border: 1px solid rgba(240, 237, 230, 0.2);
+            padding: 0.35rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            color: #cbc9c0;
+        }
+
+        /* 导航 —— 极简 inline */
+        .top-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2.2rem;
+            padding: 1rem 2rem 0.2rem;
+            flex-wrap: wrap;
+            background: transparent;
+        }
+
+        .top-nav a {
+            color: #9a9a92;
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 0.2rem 0;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .top-nav a:hover {
+            color: #d4d0c6;
+            border-bottom-color: #bfa98c;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* 正文浅色区 */
+        .intro-section {
+            padding: 3rem 0 1.8rem;
+        }
+
+        .intro-section p {
+            font-size: 1.08rem;
+            max-width: 720px;
+            margin: 1rem auto;
+            color: #3e3e3a;
+        }
+
+        .intro-section .emphasis-link {
+            color: #976f4a;
+            font-weight: 450;
+            text-decoration: none;
+            border-bottom: 1px dotted #976f4a;
+            transition: border-bottom 0.15s;
+        }
+
+        .intro-section .emphasis-link:hover {
+            border-bottom: 2px solid #976f4a;
+        }
+
+        /* 三个场景卡片 (模块) */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem 1.8rem;
+            margin: 3rem 0 2.5rem;
+        }
+
+        .scene-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 1.5rem 1.8rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.02);
+            transition: transform 0.2s ease, box-shadow 0.25s;
+            border: 1px solid #efede7;
+        }
+
+        .scene-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+        }
+
+        .scene-card h3 {
+            font-weight: 450;
+            font-size: 1.3rem;
+            margin-bottom: 0.7rem;
+            letter-spacing: 0.5px;
+            color: #2a2a28;
+        }
+
+        .scene-card .card-num {
+            display: inline-block;
+            font-size: 0.7rem;
+            background: #e8e3d9;
+            padding: 2px 10px;
+            border-radius: 30px;
+            color: #5c5546;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.4px;
+        }
+
+        .scene-card p {
+            font-size: 0.99rem;
+            color: #4f4d47;
+            margin-bottom: 0.8rem;
+        }
+
+        .scene-card a {
+            color: #7f5f3f;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+        }
+
+        .scene-card a:hover {
+            border-bottom-color: #7f5f3f;
+        }
+
+        /* 常见说明 (FAQ 摘要) */
+        .faq-block {
+            margin: 2.5rem 0 3.5rem;
+            border-top: 1px solid #e0dbd1;
+            padding-top: 2.2rem;
+        }
+
+        .faq-block h2 {
+            font-weight: 430;
+            font-size: 1.6rem;
+            color: #35322c;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.3px;
+        }
+
+        .faq-item {
+            margin-bottom: 1.4rem;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            color: #3f3b34;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item .a {
+            color: #5f5a52;
+            padding-left: 1rem;
+            border-left: 2px solid #d8cfc0;
+            margin-left: 0.2rem;
+            padding-top: 0.1rem;
+            padding-bottom: 0.1rem;
+        }
+
+        .faq-item .a a {
+            color: #7f5f3f;
+            text-decoration: none;
+            border-bottom: 1px dotted #b8a58c;
+        }
+
+        .faq-item .a a:hover {
+            border-bottom: 2px solid #7f5f3f;
+        }
+
+        .footnote {
+            text-align: center;
+            padding: 2.2rem 0 3rem;
+            color: #7e7a70;
+            font-size: 0.9rem;
+            border-top: 1px solid #eae6dd;
+        }
+
+        .footnote a {
+            color: #7f5f3f;
+            text-decoration: none;
+        }
+
+        .footnote a:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .top-nav {
+                gap: 1.2rem;
+            }
+            .container {
+                padding: 0 1.2rem;
+            }
+            .scene-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .intro-section p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (min-width: 1000px) {
+            .hero {
+                padding: 4.5rem 2rem 3.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航（轻量） -->
+    <div class="hero">
+        <nav class="top-nav">
+            <a href="#">首页</a>
+            <a href="#">创作</a>
+            <a href="#">场景</a>
+            <a href="#">说明</a>
+        </nav>
+        <h1>爱游戏</h1>
+        <div class="sub">一种安静而持续的叙事方式</div>
+        <span class="tagline">· 体验 · 构筑 · 回响 ·</span>
+    </div>
+
+    <div class="container">
+
+        <!-- 核心介绍 -->
+        <section class="intro-section">
+            <p>
+                有些事物不必喧哗。游戏所承载的，并非只是消遣——它像一扇半开的门，你可以选择推开，也可以只是站着听里面的声音。
+                <a href="https://main-official-i-game.com.cn" class="emphasis-link">爱游戏</a> 正是这样一种观察：从机制到意象，从规则到意外，每一次互动都留下一点余味。
+            </p>
+            <p>
+                这里不是攻略站，也不是社区广场。它更接近于一个安静的角落，记录着游戏作为介质时的温度与轮廓。你或许会发现，那些最打动人的片段，往往藏在一段对话、一个存档点、或者某个黄昏的光影里。
+            </p>
+        </section>
+
+        <!-- 三个场景模块 (差异化卡片) -->
+        <div class="scene-grid">
+            <div class="scene-card">
+                <span class="card-num">场景 · 一</span>
+                <h3>黄昏与存档点</h3>
+                <p>
+                    游戏中的黄昏总是格外漫长。站在屋顶或山脊，看天色一点点沉下去，背景音乐也变得缓慢。那一刻你不想推进任务，只想等月亮升起来。许多记忆就定格在这样的等待中。
+                </p>
+                <p>
+                    不妨试试在 <a href="https://main-official-i-game.com.cn">爱游戏</a> 里寻找类似气息的作品。
+                </p>
+            </div>
+
+            <div class="scene-card">
+                <span class="card-num">场景 · 二</span>
+                <h3>隐喻的箱子</h3>
+                <p>
+                    一个不需要钥匙就能打开的箱子，里面放着一张纸条。没有任务提示，没有高亮标记。发现它的人会心一笑——这种设计不是为了奖励，而是为了讲述。箱子本身就是一个句子。
+                </p>
+            </div>
+
+            <div class="scene-card">
+                <span class="card-num">场景 · 三</span>
+                <h3>步行者的地图</h3>
+                <p>
+                    有些游戏鼓励你奔跑、加速、传送。但另一些游戏，会故意把距离拉长，让你在行走中观察环境的变化。脚步声、风向、远处建筑的轮廓——地图不是工具，而是风景的目录。
+                </p>
+            </div>
+        </div>
+
+        <!-- 常见说明 (FAQ 摘要) -->
+        <div class="faq-block">
+            <h2>一些常见的问题 · 简记</h2>
+
+            <div class="faq-item">
+                <span class="q">▸ 这个网站是做什么的？</span>
+                <div class="a">
+                    它是一个以游戏体验为切入点的个人记录站，侧重于设计、氛围与叙事，不提供下载或激活服务。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <span class="q">▸ 内容会更新吗？</span>
+                <div class="a">
+                    不定期更新，每次围绕一个主题或印象展开。你可以通过 <a href="https://main-official-i-game.com.cn">爱游戏</a> 看到最新的文章与随想。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <span class="q">▸ 我可以分享这里的文章吗？</span>
+                <div class="a">
+                    当然，如果注明出处即可。这里的内容本来就是为了被看见、被谈论而存在的。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <span class="q">▸ 关于评论和反馈？</span>
+                <div class="a">
+                    目前没有开放评论区，但你可以通过网站上的联系方式（如果有）表达你的想法。沉默也是一种反馈。
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部区域（不包含任何禁止词汇） -->
+        <div class="footnote">
+            <p>— 记录一些安静的游戏时刻 —</p>
+            <p style="margin-top:0.8rem;">
+                了解更多，可浏览 <a href="https://main-official-i-game.com.cn">爱游戏</a>
+            </p>
+        </div>
+
+    </div>
+
+</body>
+</html>
