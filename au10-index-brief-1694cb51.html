@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>澳洲幸运10 · 识用</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f6f3ef;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.65;
+            color: #1e221f;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: #0d1b1a;
+            background-image: radial-gradient(circle at 20% 30%, #1d3a34 0%, #0b1817 90%);
+            padding: 5rem 2rem 4.5rem;
+            text-align: center;
+            color: #e4e8e3;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #7b9c8a, transparent);
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero p {
+            max-width: 640px;
+            margin: 0 auto 0.5rem;
+            font-size: 1.05rem;
+            color: #c8d2c5;
+            line-height: 1.7;
+        }
+
+        .hero .opening {
+            font-size: 1.2rem;
+            color: #dae3d6;
+            margin-bottom: 1rem;
+            font-weight: 350;
+        }
+
+        /* 正文区 — 浅色 */
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3.2rem 1.6rem 4.5rem;
+            background: #fdfbf9;
+        }
+
+        .intro-block {
+            margin-bottom: 2.8rem;
+        }
+
+        .intro-block p {
+            margin-bottom: 1.4rem;
+        }
+
+        /* 特点列表 */
+        .feature-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem 2.4rem;
+            margin: 2.4rem 0 2.8rem;
+        }
+
+        .feature-item {
+            background: #f4f1ec;
+            padding: 1.6rem 1.4rem;
+            border-radius: 1.2rem;
+            transition: background 0.1s ease;
+        }
+
+        .feature-item h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+            color: #1b342c;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #2f3d35;
+            line-height: 1.55;
+        }
+
+        .feature-item span {
+            display: inline-block;
+            background: #3b5f4f;
+            color: #f2f0e9;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            padding: 0.2rem 0.65rem;
+            border-radius: 30px;
+            margin-bottom: 0.5rem;
+        }
+
+        .context-note {
+            background: #f1efe9;
+            padding: 1.8rem 2rem;
+            border-radius: 1.2rem;
+            margin: 2.4rem 0 2rem;
+            border-left: 4px solid #6a8c7a;
+        }
+
+        .context-note p {
+            margin-bottom: 0.8rem;
+        }
+
+        .context-note p:last-child {
+            margin-bottom: 0;
+        }
+
+        .closing {
+            margin-top: 2.8rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0dad2;
+            font-size: 0.95rem;
+            color: #3d4d41;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .closing p {
+            max-width: 70%;
+        }
+
+        /* 链接强调色 */
+        a {
+            color: #156953;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.1s, color 0.1s;
+        }
+
+        a:hover {
+            color: #0b4d3b;
+            border-bottom: 1px solid #0b4d3b;
+        }
+
+        .hero a {
+            color: #b6d9c5;
+            border-bottom: 1px solid #4a7c67;
+        }
+
+        .hero a:hover {
+            color: #d8efe0;
+            border-bottom-color: #93b9a3;
+        }
+
+        /* 响应式 */
+        @media (max-width: 660px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                padding: 3.6rem 1.2rem 3.2rem;
+            }
+
+            .feature-list {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .content {
+                padding: 2rem 1.2rem 3.5rem;
+            }
+
+            .closing {
+                flex-direction: column;
+                gap: 0.6rem;
+            }
+
+            .closing p {
+                max-width: 100%;
+            }
+
+            .context-note {
+                padding: 1.4rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .feature-item {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 深色头图 + 开场短句 -->
+<div class="hero">
+    <div class="opening">你打开这个页面，多半是想确认一件事。</div>
+    <h1>这里是不是澳洲幸运10的入口</h1>
+    <p>一个相对简洁的起点——很多人带着类似的问题找到<a href="https://au10-index.com">澳洲幸运10</a>，想知道这个平台到底提供什么、怎么用、值不值得花时间去看。</p>
+</div>
+
+<!-- 浅色正文区 -->
+<div class="content">
+
+    <div class="intro-block">
+        <p>最初我听说「澳洲幸运10」这个名字，还以为是某种地方博彩的变体。后来发现，它其实是一个专注于数字与概率的索引站——你看到的不是喧闹的赌桌，而是一组组被整理过的开奖记录、走势、以及围绕这些数据展开的讨论。如果你跟我一样，习惯先搞清楚一个网站的骨架再做判断，那么下面这些特点也许能帮你更快地识别它是否适合你。</p>
+    </div>
+
+    <!-- 特点列表（四个卡片） -->
+    <div class="feature-list">
+        <div class="feature-item">
+            <span>数据基础</span>
+            <h3>历史开奖归档</h3>
+            <p>从最近一期回溯若干期，结果以表格与简易走势图呈现。没有花哨的动画，重点是让你看到数字本身的变化。</p>
+        </div>
+        <div class="feature-item">
+            <span>信息结构</span>
+            <h3>分类与筛选</h3>
+            <p>按日期、期号或特定玩法归类，能快速定位到某一天的记录。对习惯复盘的用户来说，少了一层翻找的繁琐。</p>
+        </div>
+        <div class="feature-item">
+            <span>界面风格</span>
+            <h3>低干扰阅读</h3>
+            <p>页面以黑灰与浅米色为主，没有弹窗、闪烁横幅或自动播放的内容。注意力更多留在数字上。</p>
+        </div>
+        <div class="feature-item">
+            <span>内容更新</span>
+            <h3>跟随官方节奏</h3>
+            <p>开奖结果通常在对应时段结束后不久同步。延迟在可接受范围内，没有人工干预的痕迹，只做客观呈现。</p>
+        </div>
+    </div>
+
+    <!-- 承接段落：场景说明 -->
+    <div class="context-note">
+        <p><strong>一个常见的使用场景：</strong>比如你之前在某处看到了几组开奖数字，想核对一下走势或确认某些冷热号。直接搜索往往会被各类推广页面淹没。而<a href="https://au10-index.com">澳洲幸运10</a>更像一个安静的档案室——你走进去，找到对应的日期和期号，数据在那里，不多一句引导。这种克制，对只想获取信息的人来说，反而省心。</p>
+        <p>当然，它不会教你下注，也不会暗示「下一期必中」。站内没有预测功能，也没有专家荐号。如果你需要的是那种带有分析建议的社区，这里可能不是。但如果你只是想自己看数据、自己判断，这个索引站已经提供了足够的素材。</p>
+    </div>
+
+    <!-- FAQ 摘要式温和信息 -->
+    <p style="margin-bottom: 0.5rem; font-weight: 450; color: #1b342c;">常见疑问（简要）</p>
+    <ul style="list-style: none; padding-left: 0.2rem; margin-bottom: 1.8rem; line-height: 1.7;">
+        <li style="margin-bottom: 0.4rem;">• 是否免费？—— 所有开奖记录和走势图表均可直接查看，无需注册或付费。</li>
+        <li style="margin-bottom: 0.4rem;">• 数据准确吗？—— 站点以官方公布结果为依据，并标注数据来源时间，存在人工核对延迟的可能。</li>
+        <li>• 移动端适配？—— 页面采用响应式设计，手机阅读同样可缩放查看数字表格。</li>
+    </ul>
+
+    <!-- 温和结尾 -->
+    <div class="closing">
+        <p>如果你只是想找一个不绕弯子的地方，把<a href="https://au10-index.com">澳洲幸运10</a>当作一个纯粹的数字记录站来用，它大概不会让你失望。少了噱头，多了清晰。至于下一步怎么理解这些数字，那就是你自己的事了。</p>
+        <span style="color: #7e8f82; font-size: 0.85rem;">— 叙述完毕</span>
+    </div>
+
+</div>
+
+</body>
+</html>
