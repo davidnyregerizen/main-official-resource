@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>德州扑克 · 日常查询与参考指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f5f3ef;
+            color: #1f1e1b;
+            line-height: 1.6;
+        }
+
+        .hero {
+            background: linear-gradient(145deg, #131211 0%, #2a2723 100%);
+            color: #ece8e0;
+            padding: 3.5rem 1.5rem 3rem;
+            text-align: center;
+            border-bottom: 4px solid #c8a96e;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0.6rem auto 0;
+            font-size: 1.1rem;
+            color: #cbc3b4;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            margin-top: 1.2rem;
+            padding: 0.3rem 1.4rem;
+            background: rgba(200, 169, 110, 0.20);
+            border: 1px solid #c8a96e;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #d7c7a2;
+        }
+
+        .wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 3rem;
+        }
+
+        .intro-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.8rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.8rem 1.4rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            border: 1px solid #e5dfd6;
+            transition: box-shadow 0.15s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.7rem;
+            color: #2f2a24;
+            border-left: 4px solid #c8a96e;
+            padding-left: 0.7rem;
+        }
+
+        .card p, .card li {
+            font-size: 0.95rem;
+            color: #3d3a35;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card li {
+            padding: 0.25rem 0;
+            display: flex;
+            gap: 0.4rem;
+        }
+
+        .card li::before {
+            content: "▹";
+            color: #b0925c;
+            font-weight: 300;
+        }
+
+        .ref-block {
+            background: #f4f0e9;
+            border-radius: 20px;
+            padding: 2rem 1.8rem;
+            margin-bottom: 2.8rem;
+            border: 1px solid #ded9cf;
+        }
+
+        .ref-block h2 {
+            font-size: 1.6rem;
+            font-weight: 450;
+            margin-bottom: 1rem;
+            color: #2f2a24;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .ref-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1rem;
+        }
+
+        .ref-item {
+            background: #fffcf8;
+            padding: 1.2rem 1rem;
+            border-radius: 14px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+        }
+
+        .ref-item strong {
+            display: block;
+            color: #3f352b;
+            font-weight: 500;
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .ref-item span {
+            font-size: 0.9rem;
+            color: #5d554b;
+        }
+
+        .tip-area {
+            background: #eae5db;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2.8rem;
+            border-left: 6px solid #c8a96e;
+        }
+
+        .tip-area h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #2a251f;
+            margin-bottom: 0.5rem;
+        }
+
+        .tip-area p {
+            color: #3f3a32;
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-mini {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 2rem;
+            margin-top: 0.8rem;
+        }
+
+        .faq-mini dt {
+            font-weight: 500;
+            color: #3d332a;
+            margin-bottom: 0.15rem;
+        }
+
+        .faq-mini dd {
+            font-size: 0.9rem;
+            color: #5b5247;
+        }
+
+        .footer-note {
+            border-top: 1px solid #d9d2c6;
+            padding-top: 2rem;
+            margin-top: 0.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: #6a6155;
+        }
+
+        a {
+            color: #9c7f4c;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+        }
+
+        a:hover {
+            color: #7c643b;
+            text-decoration-thickness: 2px;
+        }
+
+        .emph-link {
+            font-weight: 500;
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 { font-size: 1.9rem; }
+            .ref-block { padding: 1.5rem; }
+            .tip-area { padding: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>德州扑克 · 日常快查</h1>
+        <p>牌型、规则、位置、概率 —— 从随手翻看开始，慢慢熟悉每手牌背后的逻辑。</p>
+        <span class="tagline">参考 · 对照 · 延伸</span>
+    </header>
+
+    <main class="wrapper">
+        <!-- 知识卡片区：目录感布局 -->
+        <div class="intro-cards">
+            <div class="card">
+                <h3>牌型速查</h3>
+                <ul>
+                    <li>皇家同花顺 / 同花顺</li>
+                    <li>四条 / 葫芦</li>
+                    <li>同花 / 顺子</li>
+                    <li>三条 / 两对 / 一对</li>
+                    <li>高牌</li>
+                </ul>
+                <p style="margin-top:0.8rem;">同花与顺子比较时，先看花色排列，再看点数连张。</p>
+            </div>
+
+            <div class="card">
+                <h3>位置基础</h3>
+                <ul>
+                    <li>UTG (枪口位) — 紧实优先</li>
+                    <li>MP / HJ / CO — 逐渐放宽</li>
+                    <li>庄位 (BTN) — 最灵活范围</li>
+                    <li>盲注位 — 防守与偷盲</li>
+                </ul>
+                <p style="margin-top:0.8rem;">后位可以玩更多投机牌，但也要留意盲注位的反击。</p>
+            </div>
+
+            <div class="card">
+                <h3>常用概率</h3>
+                <ul>
+                    <li>翻牌中同花听牌 ≈ 11%</li>
+                    <li>翻牌中两头顺听牌 ≈ 17%</li>
+                    <li>手对翻牌中暗三条 ≈ 12%</li>
+                    <li>AK翻牌中至少一对 ≈ 32%</li>
+                </ul>
+                <p style="margin-top:0.8rem;">百分比只是参考，实际底池赔率更重要。</p>
+            </div>
+        </div>
+
+        <!-- 相关信息区：延伸阅读 + 对照 -->
+        <div class="ref-block">
+            <h2>📖 延伸 · 对照</h2>
+            <div class="ref-grid">
+                <div class="ref-item">
+                    <strong>起手牌表格</strong>
+                    <span>从口袋对到同花连张，可参考常见胜率排行，但别忽略位置和对手倾向。</span>
+                </div>
+                <div class="ref-item">
+                    <strong>底池赔率速算</strong>
+                    <span>跟注额 ÷ (跟注后底池总量) × 100，和你的听牌胜率比较再决定。</span>
+                </div>
+                <div class="ref-item">
+                    <strong>翻后套路</strong>
+                    <span>持续下注、过牌加注、延迟下注 —— 同一手牌在不同翻牌面差异很大。</span>
+                </div>
+                <div class="ref-item">
+                    <strong>术语手册</strong>
+                    <span>Donk、Slow play、Float、Block bet…… 熟悉术语能帮你更快阅读牌局。</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 提示区：日常查询习惯与注意事项 -->
+        <div class="tip-area">
+            <h3>🧭 查询提示</h3>
+            <p>遇到不熟悉的牌型或陌生场景，先停下来翻看基础对照表，往往比凭感觉操作更稳妥。边看边想：<br>
+            “这个牌面可能有哪些听牌？我的位置适合激进还是保守？”</p>
+            <p>另外，偶尔回顾自己的历史牌局，把疑惑记下来，下次遇上类似局面心里会更有底。</p>
+            <dl class="faq-mini">
+                <div>
+                    <dt>翻牌前如何快速判断手牌质量？</dt>
+                    <dd>熟悉的起手牌表格能帮你减少犹豫，但还要考虑对手数量和你所处的位次。</dd>
+                </div>
+                <div>
+                    <dt>听牌时应该跟注还是加注？</dt>
+                    <dd>看隐含赔率、对手范围以及你的形象。半诈唬有时比被动跟注更有价值。</dd>
+                </div>
+                <div>
+                    <dt>德州扑克游戏资源哪里找？</dt>
+                    <dd>可参考 <a href="https://index-dezhougames.com">德州扑克游戏</a> 页面中的策略文章与工具集，内容偏向系统梳理。</dd>
+                </div>
+            </dl>
+        </div>
+
+        <!-- 尾部：额外信息 + 无害说明 -->
+        <div class="footer-note">
+            <span>本页仅作内容索引，不提供任何形式的实时对局或投注服务。</span>
+            <span>关于规则与策略，请以可靠来源为准。</span>
+        </div>
+    </main>
+
+</body>
+</html>
